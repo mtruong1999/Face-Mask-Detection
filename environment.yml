@@ -4,4 +4,5 @@ dependencies:
 - scipy
 - scikit-learn
 - jupyter
-
+- pandas
+- conda-forge::kaggle
