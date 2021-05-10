@@ -1,4 +1,5 @@
 /docs
 /papers
 /data
-
+/.vscode
+*/.ipynb_checkpoints
