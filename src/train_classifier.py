@@ -4,7 +4,7 @@ Model is saved to models/ in project root.
 
 Author: Michael Truong
 """
-from optparse import OptionParser
+import argparse
 import model
 
 
