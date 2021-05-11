@@ -1,8 +1,9 @@
 dependencies:
-- python=3.8
+- python=3.7
 - numpy
 - scipy
 - scikit-learn
 - jupyter
 - pandas
 - conda-forge::kaggle
+- matplotlib
