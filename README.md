@@ -24,7 +24,7 @@ python src/data/replace_class.py --dir PATH_TO_ANNOTATIONS
 
 ## Automatically reorganize face detection dataset directory structure
 <div id="reorganize"></div>
-This automatically splits the face detection dataset into train, validation, and testing sets according to user specified proportions and places these files into a directory structure as required by the [`ImageAI` library](https://github.com/OlafenwaMoses/ImageAI) used for using transfer learning to train a custom YoloV3 object detector. The default split strategy is 5% allocated for the test set with the remaining date being split 80/20 for training/validation.
+This automatically splits the face detection dataset into train, validation, and testing sets according to user specified proportions and places these files into a directory structure as required by the [ImageAI library](https://github.com/OlafenwaMoses/ImageAI) used for using transfer learning to train a custom YoloV3 object detector. The default split strategy is 5% allocated for the test set with the remaining date being split 80/20 for training/validation.
 
 Usage,
 ```
