@@ -23,6 +23,7 @@ python src/data/replace_class.py --dir PATH_TO_ANNOTATIONS
 `PATH_TO_ANNOTATIONS` should contain the original unzipped annotations directory as downloaded from Kaggle. Well, it can be any directory that contains ONLY xml files.
 
 ## Automatically reorganize face detection dataset directory structure
+<div id="reorganize"></div>
 This automatically splits the face detection dataset into train, validation, and testing sets according to user specified proportions and places these files into a directory structure as required by the [`ImageAI` library](https://github.com/OlafenwaMoses/ImageAI) used for using transfer learning to train a custom YoloV3 object detector. The default split strategy is 5% allocated for the test set with the remaining date being split 80/20 for training/validation.
 
 Usage,
@@ -45,6 +46,12 @@ The resulting file structure should be as follows:
 
 ## Training mask/no-mask binary classifier
 
-## Training face detector
+## Training custom face detector
+For training a custom face mask detector from scratch we use transfer learning using the [ImageAI](https://github.com/OlafenwaMoses/ImageAI). This library currently only provides support for building a custom detector using a pretrained YoloV3 network. There are specific requirements in terms of the structure of the input dataset so it is important to first follow the section <a href="#reorganize">Automatically reorganize face detection dataset directory structure </a> above.
 
+Usage,
+```
+python train_detector.py --data PATH_TO_REORGANIZED_DATASET
+```
+Note: this is a very expensive process. Also ensure that the pretrained model is in the `pretrained_models` directory at the root of the project, i.e., `pretrained_models/pretrained-yolov3.h5`. This model should be available in this repo but can also be downloaded from ImageAI [here](https://github.com/OlafenwaMoses/ImageAI/releases/download/essential-v4/pretrained-yolov3.h5).
 ## Running detect faces as mask vs non-mask
