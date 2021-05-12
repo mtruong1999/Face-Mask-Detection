@@ -60,14 +60,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
     train_dir = args.train
     val_dir = args.val
-    model_dir = args.model_out
     classifier_choice = args.classifier
 
     check_directory(train_dir)
     check_directory(val_dir)
 
-    if not os.path.isdir(model_dir):
-        os.makedirs(model_dir)
+    
 
     labels = get_classes(train_dir)
     # ensure that both directories have same classes
@@ -77,6 +75,10 @@ if __name__ == "__main__":
     if classifier_choice not in CLASSIFIER:
         raise Exception("{} is not a valid classifier choice, must be one of {}".format(classifier_choice, CLASSIFIER.keys()))
 
+    model_dir = os.path.join(args.model_out, classifier_choice)
+    if not os.path.isdir(model_dir):
+        os.makedirs(model_dir)
+    
     train_model(train_dir, val_dir, model_dir, 224, 224, augment=False, save_history=True, classifier_name=classifier_choice)
     
 
