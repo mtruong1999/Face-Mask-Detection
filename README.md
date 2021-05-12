@@ -13,6 +13,14 @@ Note, downloading the dataset requires a [Kaggle](www.kaggle.com) account. The d
 python download.py
 ```
 (alternatively, we could have set the environment variables `KAGGLE_USERNAME` and `KAGGLE_KEY` using values from the `kaggle.json`)
+## Preprocessing class merge
+The associated face with masks detection dataset contains three classes: `with_mask`, `without_mask`, and `mask_weared_incorrect`. The difference between `mask_weared_incorrect` and `with_mask` is visually very minor (e.g., the difference between a mask being worn over nose and not or slightly not). Also, the number of `mask_weared_incorrect` instances is small compared to the other classes (123 instances vs 3232 and 717 for `with_mask` and `without_mask`, respectively). Furthermore, our face mask classifier dataset only contains two classes: faces with masks and faces without masks. Thus, we decided to merge the `mask_weared_incorrect` class into the `with_mask` class. We've written a script that iterates over all of the XML annotation files and makes replacements where appropriate (it also returns the class distributions).
+
+Usage,
+```
+python src/data/replace_class.py --dir PATH_TO_ANNOTATIONS
+```
+`PATH_TO_ANNOTATIONS` should contain the original unzipped annotations directory as downloaded from Kaggle. Well, it can be any directory that contains ONLY xml files.
 
 ## Automatically reorganize face detection dataset directory structure
 This automatically splits the face detection dataset into train, validation, and testing sets according to user specified proportions and places these files into a directory structure as required by the [`ImageAI` library](https://github.com/OlafenwaMoses/ImageAI) used for using transfer learning to train a custom YoloV3 object detector. The default split strategy is 5% allocated for the test set with the remaining date being split 80/20 for training/validation.
