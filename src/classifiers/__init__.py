@@ -5,7 +5,7 @@ and will be used for training on a dataset and saving the
 trained model to models/ in the project root.
 '''
 from .CNN import CNN
-from .LogisticRegression import LogisticRegression
+from .SGD import SGD
 from .MobileNet import MobileNet
 from .RandomForest import RandomForest
 from .ResNet import ResNet

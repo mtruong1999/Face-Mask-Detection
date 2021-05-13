@@ -51,7 +51,7 @@ Usage,
 ```
 python train_classifier.py --train TRAINING_SET --val VALIDATION_SET --model_out MODEL_OUTPUT --classifier CLASSIFIER
 ```
-Valid inputs for CLASSIFIER are "MobileNet", "RandomForest", and "LogisticRegression".
+Valid inputs for CLASSIFIER are "MobileNet", "RandomForest", and "SGD".
 
 ## Training custom face detector
 For training a custom face mask detector from scratch we use transfer learning using the [ImageAI](https://github.com/OlafenwaMoses/ImageAI). This library currently only provides support for building a custom detector using a pretrained YoloV3 network. There are specific requirements in terms of the structure of the input dataset so it is important to first follow the section <a href="#reorganize">Automatically reorganize face detection dataset directory structure </a> above.

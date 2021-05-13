@@ -9,7 +9,7 @@ import classifiers
 import os
 
 
-CLASSIFIER = {"LogisticRegression" : classifiers.LogisticRegression,
+CLASSIFIER = {"SGD" : classifiers.SGD,
               "CNN" : classifiers.CNN,
               "MobileNet" : classifiers.MobileNet,
               "RandomForest" : classifiers.RandomForest,
@@ -41,7 +41,7 @@ if __name__ == "__main__":
                         default="MobileNet",
                         type=str,
                         help="Classifier model to train, select one of: " + 
-                        "LogisticRegression, CNN, MobileNet, RandomForest, ResNet")
+                        "SGD, CNN, MobileNet, RandomForest, ResNet")
     
     parser.add_argument("--train",
                         required=True,

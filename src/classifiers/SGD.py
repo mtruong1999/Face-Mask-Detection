@@ -13,7 +13,7 @@ from skimage.transform import resize
 RESULTSPATH = "results"
 LOSS = "log"
 
-class LogisticRegression():
+class SGD():
 
     def __init__(self, train_path, val_path, width, height, augment=False, save_history=True):
         self.train_path = train_path
